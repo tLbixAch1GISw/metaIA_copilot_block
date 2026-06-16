@@ -1,0 +1,32 @@
+# ============================================================
+# LISTA PARA BLOQUEAR META AI EN PI-HOLE
+# Generado: 16 de junio de 2026
+# ============================================================
+#
+# QUÉ CUBRE: el sitio/app independiente de Meta AI (meta.ai) y
+# la plataforma de modelos Llama.
+#
+# QUÉ NO CUBRE: el asistente embebido DENTRO de WhatsApp, Instagram,
+# Facebook y Messenger. Ese usa los mismos dominios que el resto de
+# esas apps (graph.facebook.com, edge-mqtt.facebook.com, etc.), así
+# que bloquearlos rompería las apps completas, no solo el bot de IA.
+# Meta no permite desactivarlo del todo ahí dentro, solo silenciarlo
+# desde los ajustes de cada app.
+#
+# ------------------------------------------------------------
+# MODO EXACTO
+# (Pi-hole > Domains > Add to Denylist > tipo "Exact")
+# ------------------------------------------------------------
+meta.ai
+www.meta.ai
+ai.meta.com
+llama.com
+www.llama.com
+
+# ------------------------------------------------------------
+# MODO REGEX / WILDCARD
+# (Pi-hole > Domains > Add to Denylist > tipo "Regex")
+# Esto bloquea también cualquier subdominio, ej: api.meta.ai
+# ------------------------------------------------------------
+(\.|^)meta\.ai$
+(\.|^)llama\.com$

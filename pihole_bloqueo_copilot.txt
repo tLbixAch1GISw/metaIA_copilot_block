@@ -1,0 +1,52 @@
+# ============================================================
+# LISTA PARA BLOQUEAR MICROSOFT COPILOT EN PI-HOLE
+# Generado: 16 de junio de 2026
+# ============================================================
+#
+# QUÉ CUBRE: la web/app independiente de Copilot y el panel de
+# Copilot en la sidebar de Microsoft Edge.
+#
+# QUÉ NO CUBRE (y por qué):
+# - Los resúmenes de IA insertados directo en los resultados de
+#   bing.com: comparten dominio con la búsqueda normal de Bing,
+#   así que bloquear bing.com te deja sin buscador.
+# - Microsoft 365 Copilot dentro de Word/Excel/Teams/Outlook:
+#   Microsoft mismo desaconseja bloquearlo por DNS porque comparte
+#   dominio (*.cloud.microsoft, office.com) con el resto de Office;
+#   bloquearlo rompe Office entero, no solo el asistente.
+# - r.bing.com: se usa también para Maps y otras funciones de
+#   Windows, no es exclusivo de Copilot. No se incluye para evitar
+#   roturas innecesarias.
+#
+# ------------------------------------------------------------
+# MODO EXACTO
+# (Pi-hole > Domains > Add to Denylist > tipo "Exact")
+# ------------------------------------------------------------
+copilot.microsoft.com
+edgeservices.bing.com
+copilot.cloud.microsoft
+
+# ------------------------------------------------------------
+# MODO REGEX / WILDCARD
+# (Pi-hole > Domains > Add to Denylist > tipo "Regex")
+# ------------------------------------------------------------
+(\.|^)copilot\.microsoft\.com$
+(\.|^)edgeservices\.bing\.com$
+(\.|^)copilot\.cloud\.microsoft$
+
+# ==============================================================
+# OPCIONAL: GitHub Copilot (asistente de código en VS Code / IDEs)
+# Es un PRODUCTO DISTINTO al de arriba. Agregalo solo si también
+# usás o querés bloquear el autocompletado de código con IA.
+# ==============================================================
+githubcopilot.com
+individual.githubcopilot.com
+business.githubcopilot.com
+enterprise.githubcopilot.com
+copilot-proxy.githubusercontent.com
+copilot-telemetry.githubusercontent.com
+origin-tracker.githubusercontent.com
+default.exp-tas.com
+
+# Regex equivalente:
+(\.|^)githubcopilot\.com$
