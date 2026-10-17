@@ -1,0 +1,16 @@
+! Title: Bloqueo de GitHub Copilot (AdGuard Home)
+! Description: Bloquea los endpoints del asistente de codigo GitHub Copilot en VS Code / IDEs.
+! Last modified: 2026-10-16
+! Homepage: https://github.com/tLbixAch1GISw/metaIA_copilot_block
+! Formato: sintaxis AdGuard (||dominio^). Bloquea el dominio y todos sus subdominios.
+! Fuente: allowlist oficial de red de GitHub Copilot (docs.github.com).
+! Nota: se quito default.exp-tas.com de la lista anterior porque es el servicio de experimentos de
+!       Microsoft y lo usan otros productos (p. ej. VS Code); bloquearlo puede dar efectos colaterales.
+! Nota: llamadas a api.github.com/copilot_internal comparten host con GitHub y no se pueden bloquear por DNS.
+
+! --- GitHub Copilot (autocompletado/chat en IDEs; dominios de la allowlist oficial de GitHub) ---
+||githubcopilot.com^
+||copilot-proxy.githubusercontent.com^
+||copilot-telemetry.githubusercontent.com^
+||origin-tracker.githubusercontent.com^
+||copilot-reports.github.com^

@@ -1,0 +1,18 @@
+! Title: Bloqueo de Microsoft Copilot (AdGuard Home)
+! Description: Bloquea la web/app de Copilot y el panel de Copilot en Edge.
+! Last modified: 2026-10-16
+! Homepage: https://github.com/tLbixAch1GISw/metaIA_copilot_block
+! Formato: sintaxis AdGuard (||dominio^). Bloquea el dominio y todos sus subdominios.
+!
+! NO cubre: resumenes de IA dentro de bing.com (mismo dominio que la busqueda),
+!           ni Microsoft 365 Copilot dentro de Word/Excel/Teams/Outlook (comparte dominio con Office).
+! Aviso: Microsoft indica que bloquear edgeservices.bing.com puede causar errores en el panel lateral de Edge.
+! Alternativa recomendada en Edge: politica EdgeCopilotEnabled (GPO/registro).
+! Opcionales NO incluidos por romper o afectar otros servicios:
+!   copilotstudio.microsoft.com (Copilot Studio, herramienta para crear agentes)
+!   cr.m365copilotapp.svc.cloud.microsoft (Copilot Chat de M365 en Edge)
+
+! --- Microsoft Copilot (web/app independiente y panel de Edge) ---
+||copilot.microsoft.com^
+||copilot.cloud.microsoft^
+||edgeservices.bing.com^
